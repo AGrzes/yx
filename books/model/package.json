@@ -1,0 +1,21 @@
+{
+  "name": "@agrzes/yx-books-model",
+  "version": "0.0.1",
+  "description": "",
+  "main": "target",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Grzegorz Abramczyk <abramczykg@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "class-validator": "^0.13.1",
+    "graphql": "^15.5.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  }
+}
