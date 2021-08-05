@@ -44,18 +44,6 @@ data:
       released: 2018
 ---
 
-export const Book = ({book}) => (  
-  <span>    
-    <h1>{book.name}</h1>
-  </span>
-)
-
-export const Series = ({series}) => (
-  <>{series?.books.map((book) => <Book book={book}/>)}</>
-)
-
-export const Author = ({author}) => (
-  <>{author?.series.map((series) => <Series series={series}/>)}</>
-)
+import {Author} from './components/author'
 
 <Author author={frontMatter.data[0]}/>
