@@ -9,7 +9,11 @@ export interface Store {
 
 export interface Criteria {}
 
-export interface Projection {}
+export interface FieldProjection {}
+
+export interface Projection {
+  [field: string]: boolean | FieldProjection
+}
 
 export interface Query {
   single<T extends Record<string, any>>(criteria: Criteria, projection: Projection): Promise<T>
