@@ -1,4 +1,4 @@
-import { Criteria, Metadata, Projection, Query, Store } from '../api'
+import { Criteria, isFieldsProjection, Metadata, Projection, Query, Store } from '../api'
 import _ from 'lodash'
 
 export class MemoryEMS implements Store, Query {
@@ -6,14 +6,17 @@ export class MemoryEMS implements Store, Query {
 
   private projection(projection: Projection): (document: Record<string, any>) => Record<string, any> {
     if (projection) {
-      return (document) =>
-        _.mapValues(projection, (value, key) => {
-          if (_.isBoolean(value)) {
-            return document[key]
-          } else if (_.isObject(value)) {
-            return this.projection(value as Projection)(document[key])
-          }
-        })
+      return (document) => {
+        if (isFieldsProjection(projection)) {
+          return _.mapValues(projection.$fields, (value, key) => {
+            if (_.isBoolean(value)) {
+              return document[key]
+            } else if (_.isObject(value)) {
+              return this.projection(value as Projection)(document[key])
+            }
+          })
+        }
+      }
     } else {
       return _.identity
     }
