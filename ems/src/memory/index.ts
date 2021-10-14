@@ -6,7 +6,14 @@ export class MemoryEMS implements Store, Query {
 
   private projection(projection: Projection): (document: Record<string, any>) => Record<string, any> {
     if (projection) {
-      return (document) => _.pickBy(document, (value, key) => projection[key])
+      return (document) =>
+        _.mapValues(projection, (value, key) => {
+          if (_.isBoolean(value)) {
+            return document[key]
+          } else if (_.isObject(value)) {
+            return this.projection(value as Projection)(document[key])
+          }
+        })
     } else {
       return _.identity
     }

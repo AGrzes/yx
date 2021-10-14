@@ -24,4 +24,11 @@ describe('MemoryEMS', () => {
     await ems.store('1', doc)
     expect(await ems.single({ a: 'b' }, { c: true })).to.be.deep.equal({ c: 'd' })
   })
+
+  it('should deep filter fields', async () => {
+    const doc = { a: 'b', c: { d: 'e', f: 'g' } }
+    const ems = new MemoryEMS()
+    await ems.store('1', doc)
+    expect(await ems.single({ a: 'b' }, { c: { d: true } })).to.be.deep.equal({ c: { d: 'e' } })
+  })
 })
