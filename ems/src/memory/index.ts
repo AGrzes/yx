@@ -19,6 +19,10 @@ export class MemoryEMS implements Store, Query {
     }
   }
 
+  private selection(criteria: Criteria): (document: Record<string, any>) => boolean {
+    return (document) => _.isMatch(document, criteria)
+  }
+
   async store<T extends Record<string, any>>(idOrMetadata: string | Metadata, document: T): Promise<void> {
     const id = typeof idOrMetadata === 'string' ? idOrMetadata : idOrMetadata.id
     const metadata = typeof idOrMetadata === 'string' ? { id } : idOrMetadata
@@ -28,13 +32,13 @@ export class MemoryEMS implements Store, Query {
     return this.projection(projection)(
       _(this.data)
         .map(([metadata, document]) => document)
-        .find((document) => _.isMatch(document, criteria))
+        .find(this.selection(criteria))
     ) as T
   }
   async all<T extends Record<string, any>>(criteria: Criteria, projection: Projection): Promise<T[]> {
     return _(this.data)
       .map(([metadata, document]) => document)
-      .filter((document) => _.isMatch(document, criteria))
+      .filter(this.selection(criteria))
       .map(this.projection(projection))
       .value() as T[]
   }
