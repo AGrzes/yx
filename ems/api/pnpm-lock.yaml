@@ -1,28 +1,18 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@agrzes/yx-ems-api': 0.0.1
   '@types/chai': ^4.2.22
-  '@types/lodash': ^4.14.175
   '@types/mocha': ^9.0.0
   chai: ^4.3.4
-  lodash: ^4.17.21
   mocha: ^9.1.2
   nyc: ^15.1.0
   prettier: ^2.4.1
-  reflect-metadata: ^0.1.13
   source-map-support: ^0.5.20
   ts-node: ^10.3.0
   typescript: ^4.3.2
 
-dependencies:
-  lodash: 4.17.21
-  reflect-metadata: 0.1.13
-
 devDependencies:
-  '@agrzes/yx-ems-api': link:../api
   '@types/chai': 4.2.22
-  '@types/lodash': 4.14.175
   '@types/mocha': 9.0.0
   chai: 4.3.4
   mocha: 9.1.3
@@ -293,10 +283,6 @@ packages:
 
   /@types/chai/4.2.22:
     resolution: {integrity: sha512-tFfcE+DSTzWAgifkjik9AySNqIyNoYwmR+uecPwwD/XRNfvOjmC/FjCxpiUGDkDVDphPfCUecSQVFw+lN3M3kQ==}
-    dev: true
-
-  /@types/lodash/4.14.175:
-    resolution: {integrity: sha512-XmdEOrKQ8a1Y/yxQFOMbC47G/V2VDO1GvMRnl4O75M4GW/abC5tnfzadQYkqEveqRM1dEJGFFegfPNA2vvx2iw==}
     dev: true
 
   /@types/mocha/9.0.0:
@@ -1007,10 +993,6 @@ packages:
     resolution: {integrity: sha1-+wMJF/hqMTTlvJvsDWngAT3f7bI=}
     dev: true
 
-  /lodash/4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: false
-
   /log-symbols/4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
     engines: {node: '>=10'}
@@ -1253,10 +1235,6 @@ packages:
     dependencies:
       picomatch: 2.3.0
     dev: true
-
-  /reflect-metadata/0.1.13:
-    resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
-    dev: false
 
   /release-zalgo/1.0.0:
     resolution: {integrity: sha1-CXALflB0Mpc5Mw5TXFqQ+2eFFzA=}

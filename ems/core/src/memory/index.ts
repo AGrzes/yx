@@ -1,4 +1,4 @@
-import { Criteria, isFieldsProjection, Metadata, Projection, Query, Store } from '../api'
+import { Criteria, isFieldsProjection, Metadata, Projection, Query, Store } from '@agrzes/yx-ems-api'
 import _ from 'lodash'
 
 export class MemoryEMS implements Store, Query {
