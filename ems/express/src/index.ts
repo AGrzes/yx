@@ -1,7 +1,7 @@
 import { Store, Query } from '@agrzes/yx-ems-api'
 import { Router, json } from 'express'
 
-const init = (store: Store, query: Query) => {
+const init = (store: Store, query: Query): Router => {
   const router = Router()
   router.use(json())
   router.post('/', async (req, res) => {
@@ -42,6 +42,7 @@ const init = (store: Store, query: Query) => {
       res.status(500).send(e)
     }
   })
+  return router
 }
 
 export default init
