@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "target",
+  "types": "types",
   "scripts": {
     "test": "nyc mocha test/**/*.{ts,tsx}",
     "build": "rm -rf target types && tsc",
