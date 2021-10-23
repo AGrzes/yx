@@ -18,12 +18,27 @@ export const useEMSStore = () => {
   return store
 }
 
-export const useSingle = (criteria: Criteria,projection: Projection) => {
+export function useSingle<T>(criteria: Criteria,projection: Projection):T {
   const query = useEMSQuery()
-  const [data,setData] = useState()
+  const [data,setData] = useState<T>()
   useEffect(() => {
     const ac = new AbortController()
-    query.single(criteria,projection,{signal:ac.signal}).then(setData).catch((err) => {
+    query.single<T>(criteria,projection,{signal:ac.signal}).then(setData).catch((err) => {
+      if (err.message !== 'canceled') {
+        console.error(err)
+      }
+    })
+    return () => ac.abort()
+  },[])
+  return data
+}
+
+export function useAll<T>(criteria: Criteria,projection: Projection):T[] {
+  const query = useEMSQuery()
+  const [data,setData] = useState<T[]>()
+  useEffect(() => {
+    const ac = new AbortController()
+    query.all<T>(criteria,projection,{signal:ac.signal}).then(setData).catch((err) => {
       if (err.message !== 'canceled') {
         console.error(err)
       }
