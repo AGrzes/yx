@@ -1,5 +1,5 @@
 import { Store, Query, Metadata, Criteria, Projection } from '@agrzes/yx-ems-api'
-import { Axios } from 'axios'
+import axios,{ Axios} from 'axios'
 
 export class EmsStoreClient implements Store {
   constructor(private client: Axios) {}
@@ -13,11 +13,11 @@ export class EmsStoreClient implements Store {
 
 export class EmsQueryClient implements Query {
   constructor(private client: Axios) {}
-  async single<T extends Record<string, any>>(criteria: Criteria, projection: Projection): Promise<T> {
-    return (await this.client.post('/_single', { criteria, projection })).data as T
+  async single<T extends Record<string, any>>(criteria: Criteria, projection: Projection, {signal}: {signal?: AbortSignal }={}): Promise<T> {
+    return (await this.client.post('/_single', { criteria, projection },{signal})).data as T
   }
-  async all<T extends Record<string, any>>(criteria: Criteria, projection: Projection): Promise<T[]> {
-    return (await this.client.post('/_all', { criteria, projection })).data as T[]
+  async all<T extends Record<string, any>>(criteria: Criteria, projection: Projection, {signal}: {signal?: AbortSignal }={}): Promise<T[]> {
+    return (await this.client.post('/_all', { criteria, projection },{signal})).data as T[]
   }
 }
 
@@ -26,9 +26,9 @@ export interface Options {
 }
 
 export function store(options: Options): Store {
-  return new EmsStoreClient(new Axios({ baseURL: options.url }))
+  return new EmsStoreClient(axios.create({ baseURL: options.url }))
 }
 
 export function query(options: Options): Query {
-  return new EmsQueryClient(new Axios({ baseURL: options.url }))
+  return new EmsQueryClient(axios.create({ baseURL: options.url }))
 }
