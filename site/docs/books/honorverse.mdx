@@ -45,23 +45,13 @@ data:
 ---
 
 import {Author} from './components/author'
-import {EMS,useEMSQuery} from '../../src/components/EMS'
+import {EMS,useSingle} from '../../src/components/EMS'
 import {useState, useEffect} from 'react'
 
 <Author author={frontMatter.data[0]}/>
 
 export const Test = () => {
-  const query = useEMSQuery()
-  const [data,setData] = useState()
-  useEffect(() => {
-    const ac = new AbortController()
-    query.single({id:'test'},{$fields:{value:true}},{signal:ac.signal}).then(setData).catch((err) => {
-      if (err.message !== 'canceled') {
-        console.error(err)
-      }
-    })
-    return () => ac.abort()
-  },[])
+  const data = useSingle({id:'test'},{$fields:{value:true}})
   return <>{JSON.stringify(data)}</>
 } 
 

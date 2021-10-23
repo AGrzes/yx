@@ -11,13 +11,30 @@ export class EmsStoreClient implements Store {
   }
 }
 
+export interface ClientOptions {
+  signal?: AbortSignal
+}
+
+export interface QueryClient extends Query {
+  single<T extends Record<string, any>>(criteria: Criteria, projection: Projection, options?: ClientOptions): Promise<T>
+  all<T extends Record<string, any>>(criteria: Criteria, projection: Projection, options?: ClientOptions): Promise<T[]>
+}
+
 export class EmsQueryClient implements Query {
   constructor(private client: Axios) {}
-  async single<T extends Record<string, any>>(criteria: Criteria, projection: Projection, {signal}: {signal?: AbortSignal }={}): Promise<T> {
-    return (await this.client.post('/_single', { criteria, projection },{signal})).data as T
+  async single<T extends Record<string, any>>(
+    criteria: Criteria,
+    projection: Projection,
+    { signal }: ClientOptions = {}
+  ): Promise<T> {
+    return (await this.client.post('/_single', { criteria, projection }, { signal })).data as T
   }
-  async all<T extends Record<string, any>>(criteria: Criteria, projection: Projection, {signal}: {signal?: AbortSignal }={}): Promise<T[]> {
-    return (await this.client.post('/_all', { criteria, projection },{signal})).data as T[]
+  async all<T extends Record<string, any>>(
+    criteria: Criteria,
+    projection: Projection,
+    { signal }: ClientOptions = {}
+  ): Promise<T[]> {
+    return (await this.client.post('/_all', { criteria, projection }, { signal })).data as T[]
   }
 }
 
