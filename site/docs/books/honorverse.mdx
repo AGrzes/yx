@@ -45,5 +45,14 @@ data:
 ---
 
 import {Author} from './components/author'
+import {EMS,useSingle} from '../../src/components/EMS'
+import {useState, useEffect} from 'react'
 
 <Author author={frontMatter.data[0]}/>
+
+export const Test = () => {
+  const data = useSingle({id:'test'},{$fields:{value:true}})
+  return <>{JSON.stringify(data)}</>
+} 
+
+<EMS options={{url:'http://localhost:4000'}}><Test></Test></EMS>
