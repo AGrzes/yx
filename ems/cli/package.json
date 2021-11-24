@@ -63,6 +63,7 @@
     "@agrzes/yx-ems-express": "workspace:0.0.1",
     "chokidar": "^3.5.2",
     "cors": "^2.8.5",
+    "cosmiconfig": "^7.0.1",
     "express": "^4.17.1",
     "front-matter": "^4.0.2",
     "globby": "^11",
