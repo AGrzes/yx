@@ -13,7 +13,10 @@ class BooksLoader {
   async init() {
     const watch = chokidar.watch(join(__dirname, '**/*.mdx'))
     const consume = async (p: string) => {
-      this.store.store(p, fm(await readFile(p, 'utf-8')).attributes)
+      const data = fm<{ data: any[] }>(await readFile(p, 'utf-8')).attributes?.data
+      if (data) {
+        await Promise.all(data.map((d, i) => this.store.store(`${p}#${i}`, d)))
+      }
     }
     watch.on('add', consume)
     watch.on('change', consume)

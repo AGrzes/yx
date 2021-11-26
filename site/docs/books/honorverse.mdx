@@ -45,14 +45,12 @@ data:
 ---
 
 import {Author} from './components/author'
-import {EMS,useAll} from '../../src/components/EMS'
-import {useState, useEffect} from 'react'
-
-<Author author={frontMatter.data[0]}/>
+import {EMS} from '../../src/components/EMS'
+import {useBooks} from './books.model'
 
 export const Test = () => {
-  const data = useAll()
-  return <>{JSON.stringify(data)}</>
+  const books = useBooks()
+  return <Author author={books.authors['David Weber']}/>
 } 
 
 <EMS options={{url:'http://localhost:4000/ems'}}><Test></Test></EMS>
