@@ -20,5 +20,5 @@ steps:
   - cd ems
   - pnpm publish -r
   when:
-    branch:
-    - master
+    branch: master
+    event: push
