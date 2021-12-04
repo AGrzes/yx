@@ -20,7 +20,7 @@ steps:
   - cd ems
   - pnpm publish -r
   when:
-    branch: master
+    branch: main
     event: push
 trigger:
   event:
