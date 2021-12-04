@@ -14,7 +14,7 @@ steps:
   commands:
   - cd ems
   - pnpm build -r
-- name: build
+- name: publish
   image: registry.kubernetes.home.agrzes.pl/xy/node-builder
   commands:
   - cd ems
