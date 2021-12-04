@@ -5,6 +5,6 @@ name: default
 
 steps:
 - name: hello
-  image: registry.kubernetes.home.agrzes.pl/library/hello-world
+  image: ubuntu
   commands:
-  - /hello
+  - echo "Hello World"
