@@ -1,0 +1,10 @@
+---
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+- name: hello
+  image: registry.kubernetes.home.agrzes.pl/library/hello-world
+  commands:
+  - world
