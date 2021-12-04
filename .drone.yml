@@ -1,0 +1,27 @@
+---
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+- name: dependencies
+  image: registry.kubernetes.home.agrzes.pl/xy/node-builder
+  commands:
+  - cd ems
+  - pnpm i
+- name: build
+  image: registry.kubernetes.home.agrzes.pl/xy/node-builder
+  commands:
+  - cd ems
+  - pnpm build -r
+- name: publish
+  image: registry.kubernetes.home.agrzes.pl/xy/node-builder
+  commands:
+  - cd ems
+  - pnpm publish -r
+  when:
+    branch: master
+    event: push
+trigger:
+  event:
+  - push

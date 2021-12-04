@@ -33,7 +33,7 @@ export function useSingle<T>(criteria: Criteria,projection: Projection):T {
   return data
 }
 
-export function useAll<T>(criteria: Criteria,projection: Projection):T[] {
+export function useAll<T>(criteria?: Criteria,projection?: Projection):T[] {
   const query = useEMSQuery()
   const [data,setData] = useState<T[]>()
   useEffect(() => {

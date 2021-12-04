@@ -1,14 +1,15 @@
 {
-  "name": "@agrzes/yx-ems-core",
+  "name": "@agrzes/yx-ems-cli",
   "version": "0.0.1",
   "description": "",
   "main": "target",
-  "types": "types",
   "scripts": {
+    "start": "node target",
     "test": "nyc mocha test/**/*.{ts,tsx}",
     "build": "rm -rf target types && tsc",
     "watch": "tsc --watch --preserveWatchOutput"
   },
+  "types": "types",
   "nyc": {
     "all": true,
     "extension": [
@@ -33,24 +34,45 @@
   },
   "author": "Grzegorz Abramczyk <abramczykg@gmail.com>",
   "license": "MIT",
+  "bin": {
+    "ems": "bin/ems.js"
+  },
   "devDependencies": {
     "@types/chai": "^4.2.22",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
     "@types/lodash": "^4.14.175",
     "@types/mocha": "^9.0.0",
+    "@types/sinon": "^10.0.4",
+    "@types/sinon-chai": "^3.2.5",
+    "@types/supertest": "^2.0.11",
     "chai": "^4.3.4",
     "mocha": "^9.1.2",
     "nyc": "^15.1.0",
     "prettier": "^2.4.1",
+    "sinon": "^11.1.2",
+    "sinon-chai": "^3.7.0",
     "source-map-support": "^0.5.20",
-    "ts-node": "^10.3.0",
-    "typescript": "^4.3.2",
-    "@agrzes/yx-ems-api": "0.0.1"
+    "supertest": "^6.1.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.3.2"
   },
   "dependencies": {
+    "@agrzes/yx-ems-api": "workspace:0.0.1",
+    "@agrzes/yx-ems-core": "workspace:0.0.1",
+    "@agrzes/yx-ems-express": "workspace:0.0.1",
+    "chokidar": "^3.5.2",
+    "cors": "^2.8.5",
+    "cosmiconfig": "^7.0.1",
+    "express": "^4.17.1",
+    "front-matter": "^4.0.2",
+    "globby": "^11",
+    "inversify": "^6.0.1",
     "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13"
   },
   "files": [
+    "bin",
     "target",
     "types",
     "LICENSE",

@@ -1,0 +1,13 @@
+import {Book} from './components/book'
+import {EMS} from '../../src/components/EMS'
+import {useBooks} from './books.model'
+
+export const All = () => {
+  const books = useBooks()
+  return <>{
+    Object.values(books.books).map((book,key) => <Book key={key} book={book}/>)
+    }
+  </>
+} 
+
+<EMS options={{url:'http://localhost:4000/ems'}}><All/></EMS>

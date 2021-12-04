@@ -58,5 +58,14 @@
     "@agrzes/yx-ems-core": "workspace:0.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.1"
+  },
+  "files": [
+    "target",
+    "types",
+    "LICENSE",
+    "package.json"
+  ],
+  "publishConfig": {
+    "registry": "http://npm.kubernetes.home.agrzes.pl/"
   }
 }

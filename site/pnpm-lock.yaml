@@ -14,6 +14,8 @@ specifiers:
   '@types/react-router-dom': ^5.1.8
   clsx: ^1.1.1
   file-loader: ^6.2.0
+  front-matter: ^4.0.2
+  inversify: ^6.0.1
   prism-react-renderer: ^1.2.1
   react: ^17.0.1
   react-dom: ^17.0.1
@@ -29,6 +31,8 @@ dependencies:
   '@svgr/webpack': 5.5.0
   clsx: 1.1.1
   file-loader: 6.2.0
+  front-matter: 4.0.2
+  inversify: 6.0.1
   prism-react-renderer: 1.2.1_react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -4666,6 +4670,12 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
+  /front-matter/4.0.2:
+    resolution: {integrity: sha512-I8ZuJ/qG92NWX8i5x1Y8qyj3vizhXS31OxjKDu3LKP+7/qBgfIKValiZIEwoVoJKUHlhWtYrktkxV1XsX+pPlg==}
+    dependencies:
+      js-yaml: 3.14.1
+    dev: false
+
   /fs-extra/10.0.0:
     resolution: {integrity: sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==}
     engines: {node: '>=12'}
@@ -5348,6 +5358,10 @@ packages:
   /interpret/1.4.0:
     resolution: {integrity: sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==}
     engines: {node: '>= 0.10'}
+    dev: false
+
+  /inversify/6.0.1:
+    resolution: {integrity: sha512-B3ex30927698TJENHR++8FfEaJGqoWOgI6ZY5Ht/nLUsFCwHn6akbwtnUAPCgUepAnTpe2qHxhDNjoKLyz6rgQ==}
     dev: false
 
   /ip-regex/2.1.0:
