@@ -18,7 +18,7 @@ steps:
   image: registry.kubernetes.home.agrzes.pl/xy/node-builder
   commands:
   - cd ems
-  - pnpm publish -r
+  - pnpm publish -r --no-git-checks
   when:
     branch: main
     event: push
