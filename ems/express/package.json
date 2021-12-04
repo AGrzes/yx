@@ -54,5 +54,14 @@
   "dependencies": {
     "@agrzes/yx-ems-api": "workspace:0.0.1",
     "express": "^4.17.1"
+  },
+  "files": [
+    "target",
+    "types",
+    "LICENSE",
+    "package.json"
+  ],
+  "publishConfig": {
+    "registry": "http://npm.kubernetes.home.agrzes.pl/"
   }
 }
